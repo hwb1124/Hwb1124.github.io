@@ -479,12 +479,20 @@
 <li>完成披萨店订购功能</li>
 </ol>
 <p>首先使用传统的方式来完成</p>
-<ol>
-<li><p>思路分析（类图）</p>
-<p>![传统方法]( <a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/">https://cdn.jsdelivr.net/gh/</a> hwb1124/cdn/img/简单工厂模式传统类图.png)</p>
-</li>
+<h5 id="思路分析（类图）"><a href="#思路分析（类图）" class="headerlink" title="思路分析（类图）"></a>思路分析（类图）</h5><p>![传统模式类图]( <a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/">https://cdn.jsdelivr.net/gh/</a> hwb1124/cdn/img/202109202059505.png)</p>
+<h5 id="代码实现（略）"><a href="#代码实现（略）" class="headerlink" title="代码实现（略）"></a>代码实现（略）</h5><h5 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h5><ol>
+<li>优点是好理解，易操作</li>
+<li>缺点是违反了设计模式的<strong>ocp原则</strong>，在增加新的类时，要修改核心类中的方法</li>
 </ol>
-
+<p>​    </p>
+<h5 id="改进的思路分析"><a href="#改进的思路分析" class="headerlink" title="改进的思路分析"></a>改进的思路分析</h5><pre><code>      思路：把创建Pizza对象封装到一个类中，这样我们有新的Pizza种类时，只需要修改该类即可。
+</code></pre>
+<h3 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h3><ol>
+<li>简单工厂模式是属于创建型模式，是工厂模式的一种。<strong>简单工厂模式是由一 个工厂对象决定创建出哪一种产品类的实例</strong>。简单工厂模式是工厂模式家族中最简单实用的模式</li>
+<li>简单工厂模式：定义了一个创建对象的类，由这个类来封装实例化对象的行 为(代码)</li>
+<li>在软件开发中，当我们会用到大量的创建某种、某类或者某批对象时，就会 使用到工厂模式</li>
+</ol>
+<h4 id="使用简单工厂模式解决案例问题"><a href="#使用简单工厂模式解决案例问题" class="headerlink" title="使用简单工厂模式解决案例问题"></a>使用简单工厂模式解决案例问题</h4><h5 id="思想分析（类图）"><a href="#思想分析（类图）" class="headerlink" title="思想分析（类图）"></a>思想分析（类图）</h5>
                 
             </div>
             <hr/>
