@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>设计模式之工厂模式</title>
+      <link href="/2021/09/20/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
+      <url>/2021/09/20/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>  看一个披萨的项目：要便于披萨种类的扩展，要便于维护</p><ol><li>披萨的种类很多（比如GreekPizza、CheesePizza等）</li><li>披萨的制作有prepare，bake，cut，box</li><li>完成披萨店订购功能</li></ol><p>首先使用传统的方式来完成</p><ol><li><p>思路分析（类图）</p><p>![传统方法]( <a href="https://cdn.jsdelivr.net/gh/">https://cdn.jsdelivr.net/gh/</a> hwb1124/cdn/img/简单工厂模式传统类图.png)</p></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 设计模式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>设计模式之单例模式</title>
       <link href="/2021/09/19/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
       <url>/2021/09/19/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</url>
