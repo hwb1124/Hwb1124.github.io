@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>picgo搭配gitee实现个人图床</title>
+      <link href="/2021/09/21/picgo%E6%90%AD%E9%85%8Dgitee%E5%AE%9E%E7%8E%B0%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A/"/>
+      <url>/2021/09/21/picgo%E6%90%AD%E9%85%8Dgitee%E5%AE%9E%E7%8E%B0%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%8A/</url>
+      
+        <content type="html"><![CDATA[<h2 id="方式"><a href="#方式" class="headerlink" title="方式"></a>方式</h2><ol><li>与github搭配</li><li>与gitee搭配</li></ol><h3 id="个人建议"><a href="#个人建议" class="headerlink" title="个人建议"></a>个人建议</h3><p>与gitee搭配，毕竟GitHub是外国网站，很容易因为网络问题而无法加载图片（可上传却会报image load failed错误）</p><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><ol><li><p>创建gitee账号，网址：<a href="https://gitee.com/">https://gitee.com/</a></p></li><li><p>创建成功后就去创建一个仓库（要公有化的），以用来放上传的图片</p></li><li><p>去申请私人令牌（设置-安全设置-私人令牌）<img src="https://gitee.com/hwb1124/markdown/raw/master/img/202109211245371.png" alt="申请令牌"></p></li><li><p>在picgo中下载插件<img src="https://gitee.com/hwb1124/markdown/raw/master/img/202109211258692.png"></p></li><li><p>进行图床设置<img src="https://gitee.com/hwb1124/markdown/raw/master/img/202109211259250.png"></p><p>repo：填用户名/仓库名</p><p>branch：填主分支，一般都是master</p><p>token：填申请令牌后，得到的那一段代码（记得保存，它只会显示一次）</p><p>path：填二级文件夹（如：在仓库中创建一个img文件夹，就设置为/img）</p><p>其他可以不用填</p></li><li><p>用topyra来测试是否构建成功(文件-偏好设置-图像)</p><p><img src="https://gitee.com/hwb1124/markdown/raw/master/img/202109211303878.png"></p><ol start="7"><li><p>如果验证不成功，可以重启picgo服务试一下，或者重启Server</p><p><img src="https://gitee.com/hwb1124/markdown/raw/master/img/202109211305501.png"></p></li><li><p>如果是其他错误，可以查看日志，然后再去网上找解决办法</p><p><img src="https://gitee.com/hwb1124/markdown/raw/master/img/202109211306261.png"></p></li></ol></li></ol><h4 id="设置成功后，可以直接在typora上插入本地图片，picgo会自动将图片上传到网络上的。"><a href="#设置成功后，可以直接在typora上插入本地图片，picgo会自动将图片上传到网络上的。" class="headerlink" title="设置成功后，可以直接在typora上插入本地图片，picgo会自动将图片上传到网络上的。"></a>设置成功后，可以直接在typora上插入本地图片，picgo会自动将图片上传到网络上的。</h4>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 图床搭建 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>设计模式之适配器模式</title>
       <link href="/2021/09/21/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/"/>
       <url>/2021/09/21/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</url>
