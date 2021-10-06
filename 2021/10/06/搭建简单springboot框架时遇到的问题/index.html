@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Git的基本操作, Java">
+    <meta name="keywords" content="搭建简单springboot框架时遇到的问题, Java">
     <meta name="description" content="分享生活，分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Git的基本操作 | 渡</title>
+    <title>搭建简单springboot框架时遇到的问题 | 渡</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Git的基本操作</h1>
+                    <h1 class="description center-align post-title">搭建简单springboot框架时遇到的问题</h1>
                 </div>
             </div>
         </div>
@@ -444,15 +444,6 @@
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Git/" class="post-category">
-                                Git
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
@@ -460,7 +451,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-03
+                    2021-10-06
                 </div>
                 
 
@@ -481,136 +472,35 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Git概述"><a href="#Git概述" class="headerlink" title="Git概述"></a>Git概述</h2><p>Git 是一个免费的、开源的分布式版本控制系统，可以快速高效地处理从小型到大型的各种 项目。</p>
-<p>Git 易于学习，占地面积小，性能极快。 它具有廉价的本地库，方便的暂存区域和多个工作 流分支等特性。其性能优于 Subversion、CVS、Perforce 和 ClearCase 等版本控制工具。</p>
-<h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><p>版本控制是一种记录文件内容变化，以便将来查阅特定版本修订情况的系统。</p>
-<p>版本控制其实最重要的式可以记录文件修改历史记录，从而让用户能够查看历史版本，方便版本切换。</p>
-<h3 id="版本控制工具"><a href="#版本控制工具" class="headerlink" title="版本控制工具"></a>版本控制工具</h3><ol>
-<li>集中式版本控制工具：CVS、<strong>SVN</strong>、VSS等</li>
-<li>分布式版本控制工具:<strong>Git</strong>、Mercurial、Bazaar、Darcs等</li>
+                <h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><ol>
+<li><p>配置文件遇到的问题：</p>
+<ol>
+<li>数据源问题：1.层次缩进以及空格要对准；2.数据输入错误，要仔细检查写的对不对</li>
+<li>mybatis文件放置问题：1.如果运行找不到mapper文件或实体类对象，可以看看target里mapper文件以及实体类放置的位置</li>
 </ol>
-<h3 id="分布式版本控制工具的优点"><a href="#分布式版本控制工具的优点" class="headerlink" title="分布式版本控制工具的优点"></a>分布式版本控制工具的优点</h3><ol>
-<li>服务器断网的情况下也可以进行开发（因为每个拉取的是整个仓库，不仅包括最后一次的版本，所以版本控制是在本地进行的）</li>
-<li>每个客户端保存的是完整的整个项目</li>
+</li>
+<li><p>mapper文件内笔记</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//id要与方法名一致，parameter是指输入参数的类型</span></span><br><span class="line">&lt;select id=<span class="string">&quot;PaymentById&quot;</span> resultMap=<span class="string">&quot;PaymentMap&quot;</span> parameterType=<span class="string">&quot;Payment&quot;</span>&gt;</span><br><span class="line"> <span class="comment">//resultmap是用来映射数据库中的字段（适用于查询出来的字段名与对象属性名不一致时）   </span></span><br><span class="line">&lt;resultMap type=<span class="string">&quot;com.atguigu.springcloud.entities.Payment&quot;</span> id=<span class="string">&quot;PaymentMap&quot;</span>&gt;</span><br><span class="line">     &lt;result property=<span class="string">&quot;id&quot;</span> column=<span class="string">&quot;id&quot;</span> jdbcType=<span class="string">&quot;INTEGER&quot;</span>/&gt;</span><br><span class="line">     &lt;result property=<span class="string">&quot;name&quot;</span> column=<span class="string">&quot;name&quot;</span> jdbcType=<span class="string">&quot;VARCHAR&quot;</span>/&gt;</span><br><span class="line"> &lt;/resultMap&gt;</span><br><span class="line"><span class="comment">//useGeneratedKeys指自动生成主键，keyProperty=主键，这样可以解决主键自增情况下获取主键 </span></span><br><span class="line"> &lt;insert id=<span class="string">&quot;add&quot;</span> keyProperty=<span class="string">&quot;id&quot;</span> useGeneratedKeys=<span class="string">&quot;true&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>业务层笔记：</p>
+<ol>
+<li><p>消费者要想传数据到服务提供者时，方法的参数内要加上@RequestBody</p>
+</li>
+<li><p>RestTemplate是spring自带的RestTemplate模板，是一种调用外部接口的API</p>
+<ol>
+<li><p>具体使用方法为：创建一个config类（记得加上注解@@Configuration），里面写一个方法（加上#Bean）返回一个RestTemplate对象</p>
+</li>
+<li><p>该对象可以调用外部接口，第一个参数为要调用的服务接口，第二个为返回值类型（要加上.class反射），第三个参数为可变长度参数</p>
+<p>​    </p>
+</li>
 </ol>
-<h3 id="Git和代码托管中心"><a href="#Git和代码托管中心" class="headerlink" title="Git和代码托管中心"></a>Git和代码托管中心</h3><p>代码托管中心是基于网络服务器的远程代码仓库，一般我们简单成为<strong>远程库</strong>.</p>
-<ul>
-<li>局域网<ul>
-<li>GitLab</li>
-</ul>
 </li>
-<li>互联网<ul>
-<li>Github（外网）</li>
-<li>Gitee码云（国内网站）</li>
-</ul>
+</ol>
 </li>
-</ul>
-<h3 id="如何查看Git的版本"><a href="#如何查看Git的版本" class="headerlink" title="如何查看Git的版本"></a>如何查看Git的版本</h3><p> 鼠标右键点击Git-bash-here,然后输入git -version 查看信息</p>
-<h2 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h2><table>
-<thead>
-<tr>
-<th><strong>命令名称</strong></th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>git config –global user.name 用户名</td>
-<td>设置用户签名</td>
-</tr>
-<tr>
-<td>git config –global user.email 邮箱</td>
-<td>设置用户签名</td>
-</tr>
-<tr>
-<td><strong>git init</strong></td>
-<td><strong>初始化本地库</strong></td>
-</tr>
-<tr>
-<td><strong>git status</strong></td>
-<td><strong>查看本地库的状态</strong></td>
-</tr>
-<tr>
-<td><strong>git add 文件名</strong></td>
-<td><strong>将文件上传到暂存区</strong></td>
-</tr>
-<tr>
-<td><strong>git commit -m “日志信息” 文件名</strong></td>
-<td><strong>将暂存区文件上传至本地库</strong></td>
-</tr>
-<tr>
-<td><strong>git reflog</strong></td>
-<td><strong>查看历史记录</strong></td>
-</tr>
-<tr>
-<td><strong>git reset –hard 版本号</strong></td>
-<td><strong>版本穿梭（可以回到之前的任意版本）</strong></td>
-</tr>
-</tbody></table>
-<p><strong>git切换版本，底层其实是移动的HEAD指针</strong>(head-&gt;master-&gt;first)</p>
-<h2 id="Git分支操作"><a href="#Git分支操作" class="headerlink" title="Git分支操作"></a>Git分支操作</h2><h3 id="分支的含义"><a href="#分支的含义" class="headerlink" title="分支的含义"></a>分支的含义</h3><p>在版本控制过程中，同时推进多个任务，为每个任务，我们就可以创建每个任务的分支。使用分支意味着程序员可以把自己的工作从开发主线上分离开来，开发自己分支的时 候，不会影响主线分支的运行。</p>
-<h3 id="分支的好处"><a href="#分支的好处" class="headerlink" title="分支的好处"></a>分支的好处</h3><p>同时并行推进多个功能开发，提高开发效率。</p>
-<p>各个分支在开发过程中，如果某一个分支开发失败，不会对其他分支有任何影响，把这个分支删除重新开始即可。</p>
-<h3 id="分支的操作"><a href="#分支的操作" class="headerlink" title="分支的操作"></a>分支的操作</h3><table>
-<thead>
-<tr>
-<th>命令名称</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>git branch 分支名</td>
-<td>创建分支</td>
-</tr>
-<tr>
-<td>git branch -v</td>
-<td>查看分支</td>
-</tr>
-<tr>
-<td>git checkout 分支名</td>
-<td>切换分支</td>
-</tr>
-<tr>
-<td>git merge 分支名</td>
-<td>将指定分支合并到当前分支中</td>
-</tr>
-</tbody></table>
-<h3 id="分支冲突问题"><a href="#分支冲突问题" class="headerlink" title="分支冲突问题"></a>分支冲突问题</h3><p>产生原因：合并分支时，两个分支在同一个文件的同一个位置有两套完全不同的修改。Git 无法替 我们决定使用哪一个。必须人为决定新代码内容。</p>
-<p>解决冲突的方法：编辑有冲突的文件，删除特殊符号，决定要使用的内容。</p>
-<p><strong>注：master、hot-fix 其实都是指向具体版本记录的指针。当前所在的分支，其实是由 HEAD 决定的。所以创建分支的本质就是多创建一个指针。</strong></p>
-<h2 id="团队协作"><a href="#团队协作" class="headerlink" title="团队协作"></a>团队协作</h2><h3 id="远程仓库操作"><a href="#远程仓库操作" class="headerlink" title="远程仓库操作"></a>远程仓库操作</h3><table>
-<thead>
-<tr>
-<th>命令名称</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>git remote -v</td>
-<td>查看当前所有远程地址别名</td>
-</tr>
-<tr>
-<td>git remote add 别名 远程仓库</td>
-<td>起别名</td>
-</tr>
-<tr>
-<td>git push 别名 分支</td>
-<td>推送本地分支上的内容到远程仓库</td>
-</tr>
-<tr>
-<td>git clone 远程地址</td>
-<td>将远程仓库的内容克隆到本地</td>
-</tr>
-<tr>
-<td>git pull 远程库地址别名 远程分支名</td>
-<td>将远程仓库对于分支最新内容拉下来后与 当前本地分支直接合并</td>
-</tr>
-</tbody></table>
-<p>小结：clone 会做如下操作。1、拉取代码。2、初始化本地仓库。3、创建别名</p>
-<hr>
-<p>上面是最基本的git使用操作，后面团队协作的操作以及idea整合git的配置有时间再更新</p>
-<blockquote>
-<p>摘自尚硅谷老师的笔记</p>
-</blockquote>
+</ol>
+</li>
+</ol>
 
                 
             </div>
@@ -637,7 +527,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hwb1124.github.io/2021/10/03/Git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">https://hwb1124.github.io/2021/10/03/Git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</a>
+                    <a href="https://hwb1124.github.io/2021/10/06/%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95springboot%E6%A1%86%E6%9E%B6%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">https://hwb1124.github.io/2021/10/06/%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95springboot%E6%A1%86%E6%9E%B6%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -847,7 +737,7 @@
         repo: 'hwb1124.github.io',
         owner: 'hwb1124',
         admin: ["hwb1124"],
-        id: '2021-10-03T16-26-43',
+        id: '2021-10-06T21-12-26',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -875,9 +765,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/10/06/%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95springboot%E6%A1%86%E6%9E%B6%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
@@ -895,9 +786,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -906,6 +797,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -924,13 +816,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/09/24/Java8%E6%96%B0%E7%89%B9%E6%80%A7%EF%BC%9ALambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                <a href="/2021/10/03/Git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/8.jpg" class="responsive-img" alt="Java8新特性：Lambda表达式">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/5.jpg" class="responsive-img" alt="Git的基本操作">
                         
-                        <span class="card-title">Java8新特性：Lambda表达式</span>
+                        <span class="card-title">Git的基本操作</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -941,14 +833,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/java8%E6%96%B0%E7%89%B9%E6%80%A7/" class="post-category">
-                                    java8新特性
+                            <a href="/categories/Git/" class="post-category">
+                                    Git
                                 </a>
                             
                             
@@ -958,8 +850,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java8/">
-                        <span class="chip bg-color">java8</span>
+                    <a href="/tags/java/">
+                        <span class="chip bg-color">java</span>
                     </a>
                     
                 </div>

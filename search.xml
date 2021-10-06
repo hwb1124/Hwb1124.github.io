@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>搭建简单springboot框架时遇到的问题</title>
+      <link href="/2021/10/06/%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95springboot%E6%A1%86%E6%9E%B6%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+      <url>/2021/10/06/%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95springboot%E6%A1%86%E6%9E%B6%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><ol><li><p>配置文件遇到的问题：</p><ol><li>数据源问题：1.层次缩进以及空格要对准；2.数据输入错误，要仔细检查写的对不对</li><li>mybatis文件放置问题：1.如果运行找不到mapper文件或实体类对象，可以看看target里mapper文件以及实体类放置的位置</li></ol></li><li><p>mapper文件内笔记</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//id要与方法名一致，parameter是指输入参数的类型</span></span><br><span class="line">&lt;select id=<span class="string">&quot;PaymentById&quot;</span> resultMap=<span class="string">&quot;PaymentMap&quot;</span> parameterType=<span class="string">&quot;Payment&quot;</span>&gt;</span><br><span class="line"> <span class="comment">//resultmap是用来映射数据库中的字段（适用于查询出来的字段名与对象属性名不一致时）   </span></span><br><span class="line">&lt;resultMap type=<span class="string">&quot;com.atguigu.springcloud.entities.Payment&quot;</span> id=<span class="string">&quot;PaymentMap&quot;</span>&gt;</span><br><span class="line">     &lt;result property=<span class="string">&quot;id&quot;</span> column=<span class="string">&quot;id&quot;</span> jdbcType=<span class="string">&quot;INTEGER&quot;</span>/&gt;</span><br><span class="line">     &lt;result property=<span class="string">&quot;name&quot;</span> column=<span class="string">&quot;name&quot;</span> jdbcType=<span class="string">&quot;VARCHAR&quot;</span>/&gt;</span><br><span class="line"> &lt;/resultMap&gt;</span><br><span class="line"><span class="comment">//useGeneratedKeys指自动生成主键，keyProperty=主键，这样可以解决主键自增情况下获取主键 </span></span><br><span class="line"> &lt;insert id=<span class="string">&quot;add&quot;</span> keyProperty=<span class="string">&quot;id&quot;</span> useGeneratedKeys=<span class="string">&quot;true&quot;</span>&gt;</span><br></pre></td></tr></table></figure><ol start="3"><li><p>业务层笔记：</p><ol><li><p>消费者要想传数据到服务提供者时，方法的参数内要加上@RequestBody</p></li><li><p>RestTemplate是spring自带的RestTemplate模板，是一种调用外部接口的API</p><ol><li><p>具体使用方法为：创建一个config类（记得加上注解@@Configuration），里面写一个方法（加上#Bean）返回一个RestTemplate对象</p></li><li><p>该对象可以调用外部接口，第一个参数为要调用的服务接口，第二个为返回值类型（要加上.class反射），第三个参数为可变长度参数</p><p>​    </p></li></ol></li></ol></li></ol></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git的基本操作</title>
       <link href="/2021/10/03/Git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
       <url>/2021/10/03/Git%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
