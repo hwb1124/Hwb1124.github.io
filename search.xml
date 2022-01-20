@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>进制转换与精度问题</title>
+      <link href="/2022/01/20/%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E4%B8%8E%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/"/>
+      <url>/2022/01/20/%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E4%B8%8E%E7%B2%BE%E5%BA%A6%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="进制转换与精度问题"><a href="#进制转换与精度问题" class="headerlink" title="进制转换与精度问题"></a>进制转换与精度问题</h1><h4 id="在日常学习中经常碰到涉及加减运算以及进制转换问题。而如果是对小数进行运算则很容易出现精度问题（如精度丢失等），所以这篇文章就是来讲如何解决这类问题的。"><a href="#在日常学习中经常碰到涉及加减运算以及进制转换问题。而如果是对小数进行运算则很容易出现精度问题（如精度丢失等），所以这篇文章就是来讲如何解决这类问题的。" class="headerlink" title="在日常学习中经常碰到涉及加减运算以及进制转换问题。而如果是对小数进行运算则很容易出现精度问题（如精度丢失等），所以这篇文章就是来讲如何解决这类问题的。"></a>在日常学习中经常碰到涉及加减运算以及进制转换问题。而如果是对小数进行运算则很容易出现精度问题（如精度丢失等），所以这篇文章就是来讲如何解决这类问题的。</h4><h3 id="浮点数在计算机中的表示"><a href="#浮点数在计算机中的表示" class="headerlink" title="浮点数在计算机中的表示"></a>浮点数在计算机中的表示</h3><p>浮点数在计算机中的表现形式是采用<strong>尾数 + 阶码</strong>的编码方式，类似于科学计数法的<strong>有效数字 + 指数位</strong> </p><p><code>float</code>和<code>double</code>这两种类型的浮点数在计算机中的存储结构：</p><p><img src="https://gitee.com/hwb1124/markdown/raw/master/img/202201202007556.webp"></p><p><img src="https://gitee.com/hwb1124/markdown/raw/master/img/202201202008185.webp"></p><p><strong>1、符号部分（S）</strong></p><p><code>0</code>-正 <code>1</code>-负</p><p><strong>2、阶码部分（E）（指数部分）</strong>：</p><ul><li>对于<code>float</code>型浮点数，指数部分<code>8</code>位，考虑可正可负，因此可以表示的指数范围为<code>-127 ~ 128</code></li><li>对于<code>double</code>型浮点数，指数部分<code>11</code>位，考虑可正可负，因此可以表示的指数范围为<code>-1023 ~ 1024</code></li></ul><p><strong>3、尾数部分（M）</strong>：</p><p>浮点数的精度是由尾数的位数来决定的：</p><ul><li><p>对于<code>float</code>型浮点数，尾数部分<code>23</code>位，换算成十进制就是 <code>2^23=8388608</code>，所以十进制精度只有<code>6 ~ 7</code>位；</p></li><li><p>对于<code>double</code>型浮点数，尾数部分<code>52</code>位，换算成十进制就是 <code>2^52 = 4503599627370496</code>，所以十进制精度只有<code>15 ~ 16</code>位</p><p>所以，浮点数交给计算机存储的时候，可能会有<strong>精度丢失</strong>问题！</p></li></ul><h3 id="进制转换问题"><a href="#进制转换问题" class="headerlink" title="进制转换问题"></a>进制转换问题</h3><h4 id="十进制如何转换为二进制"><a href="#十进制如何转换为二进制" class="headerlink" title="十进制如何转换为二进制"></a>十进制如何转换为二进制</h4><p>  对于<strong>整数</strong>采用<strong>除二取余法</strong>，将余数从上到下排序。对于<strong>小数</strong>采用<strong>乘二取整法</strong>，将余数从上到下排序。将整数与小数部分得到的结果合并，就得到了进制转换的最终结果。</p><p>举例：</p><p>​    <img src="https://gitee.com/hwb1124/markdown/raw/master/img/202201202002838.webp"></p><p>​    所以整数部分 + 小数部分，因此最终得到的结果二进制结果为<code>110.01011100...</code></p><p>​    按照<strong>尾数+阶码</strong>的方式得到的结果为：1.1001011100… *二的平方。</p><p>​    所以对应可得：</p><ul><li><strong>符号位</strong>：0</li><li><strong>阶码（E）部分</strong>：若以<code>float</code>为例，应为 <code>127 +（2）= 129</code>，因此二进制表示为：<code>10000001</code></li><li><strong>尾数部分（M）</strong>：<code>1001011100...</code>，其实它本身无限不循环，但若以<code>float</code>型精度来截取<code>23</code>位，则可以表示为<code>10010111000010100011111</code></li></ul><p>因此最终的总结果为（以<code>32</code>位精度<code>float</code>表示）：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">01000000110010111000010100011111</span><br></pre></td></tr></table></figure><p>​    像这种无限位数的尾数情况，计算机存储会产生截取，就会发生<strong>精度损失</strong>问题了！所以使用浮点数的使用时要万分注意。</p><p>其他进制转换同理，如果对进制转换不熟悉，可以先转换成十进制，再从十进制转换到目标进制会比较简单一点。</p><h4 id="二进制转换工具站"><a href="#二进制转换工具站" class="headerlink" title="二进制转换工具站"></a><strong>二进制转换工具站</strong></h4><p>如：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">binaryconvert.com</span><br></pre></td></tr></table></figure><p> 这样可以不用手算，也减少了出错的概率。</p><h2 id="精度问题"><a href="#精度问题" class="headerlink" title="精度问题"></a>精度问题</h2><p> <strong>典型场景</strong></p><p><img src="https://gitee.com/hwb1124/markdown/raw/master/img/202201202018724.png"></p><p><img src="https://gitee.com/hwb1124/markdown/raw/master/img/202201202019928.png"></p><p><strong>运行结果</strong></p><p><img src="https://gitee.com/hwb1124/markdown/raw/master/img/202201202019911.png"></p><p>​    出现问题的原因就是因为浮点数的精度问题。因为浮点数的精度是由尾数的位数决定的，根据上面的浮点数在计算机中的表示可得知，float的尾数位数是6·7位，而像第一个场景中，判断为true的那个值尾数是八位的，所以才会出现问题。其他场景的问题也是如此。</p><p>​    所以在使用浮点数的使用要注意精度问题，不要去超出规定位数。</p><h3 id="解决精度问题的方法"><a href="#解决精度问题的方法" class="headerlink" title="解决精度问题的方法"></a>解决精度问题的方法</h3><pre><code>1. **用字符串或者数组解决多位数问题**2. **Java的大数类（Math类）**</code></pre><p>​    第一种就是用字符串或者数组表示大数，然后用四则运算手动操作模拟具体计算过程。</p><p>​    第二种则是运用<code>java.math</code>包下的<code>BigInteger</code> 和 <code>BigDecimal</code>两个函数解决高精度数值运算问题。</p><p><img src="https://gitee.com/hwb1124/markdown/raw/master/img/202201202031893.png"></p><p><strong>注意</strong></p><p>​    用这种函数运算的运算效率肯定没有原生类型运算效率高，要根据具体场景具体分析用哪种方法比较好！</p><blockquote><p>该学习笔记根据CodeSheep羊哥的文章整理而成，具体参考<a href="https://mp.weixin.qq.com/s/LVpvmBO0GY6TC4gwL_12Yw">真有小伙伴不知道浮点数如何转二进制吗？</a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> base </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>创建一个新对象的方法</title>
       <link href="/2022/01/19/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/"/>
       <url>/2022/01/19/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/</url>
