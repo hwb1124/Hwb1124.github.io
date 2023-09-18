@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, hwb&#39;s Blog">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="HashKV, hwb&#39;s Blog">
+    <meta name="description" content="HashKV介绍HashKV是一种基于散列数据分组、实现键值分离的存储模型，主要是应用在更新密集型工作负载中。它将值存储划分为固定大小的几个分区，并通过散列其值来确定性地将每个写入的KV对的值映射到对应分区中。
+动机因为在当前没有一种更新密">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | hwb&#39;s Blog</title>
+    <title>HashKV | hwb&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -312,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">HashKV</h1>
                 </div>
             </div>
         </div>
@@ -339,9 +340,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/key-value/">
+                                <span class="chip bg-color">key-value</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -353,28 +358,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-09-17
+                    2023-09-18
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    1985-10-26
+                    2023-09-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    73
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -397,19 +402,72 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+                <h1 id="HashKV"><a href="#HashKV" class="headerlink" title="HashKV"></a>HashKV</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>HashKV是一种基于散列数据分组、实现键值分离的存储模型，主要是应用在更新密集型工作负载中。它将值存储划分为固定大小的几个分区，并通过散列其值来确定性地将每个写入的KV对的值映射到对应分区中。</p>
+<h2 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h2><p>因为在当前没有一种更新密集型工作负载下的高性能存储模型。Wisckey虽然实现了键值分离，减少了查找和compaction操作的开销，但由于大量的GC操作会使得开销很高，所以提出了HashKV存储模型，来提高吞吐量以及减少写入开销。</p>
+<h2 id="HashKV的设计"><a href="#HashKV的设计" class="headerlink" title="HashKV的设计"></a>HashKV的设计</h2><h3 id="主要的思想"><a href="#主要的思想" class="headerlink" title="主要的思想"></a>主要的思想</h3><ul>
+<li>基于散列的数据分组。通过将散列相关联的键将值映射到值存储中的固定大小的分区</li>
+<li>动态保留空间分配。每个分区的大小是固定的，但可以通过分配保留空间的一部分来动态增长，以至于超过其限制。</li>
+<li>热感知。将冷热键值对存储在不同的分区。</li>
+<li>选择性键值分离。将小尺寸（所占空间小）键值对直接存储在LSM树中，降低开销。</li>
+</ul>
+<h3 id="存储管理"><a href="#存储管理" class="headerlink" title="存储管理"></a>存储管理</h3><h4 id="HashKV的值存储结构"><a href="#HashKV的值存储结构" class="headerlink" title="HashKV的值存储结构"></a>HashKV的值存储结构</h4><ul>
+<li>Main Segment</li>
+<li>Log Segment</li>
+<li>Reserved Serment</li>
+<li>cold data log Segment</li>
+</ul>
+<h4 id="插入过程"><a href="#插入过程" class="headerlink" title="插入过程"></a>插入过程</h4><ol>
+<li>首先将key储存到LSM树中</li>
+<li>HashKV将key散列到相对应的主段中，然后将值附加到主段的末尾（如果主段已满则加到日志段中）</li>
+<li>在LSM树中更新值的最新位置。</li>
+</ol>
+<h4 id="实现高写入性能"><a href="#实现高写入性能" class="headerlink" title="实现高写入性能"></a>实现高写入性能</h4><p>用全局内存段表存储每个段组的当前结束位置，以供后续的插入或更新。下次插入或更新数据则可以直接找到正确的写入位置。</p>
+<ul>
+<li>提高写入性能：加入一个写缓存组件，用来存储最近写入的KV对。等到写缓存满了后再刷新到LSM树和值存储区中。</li>
+</ul>
+<h4 id="GC优化"><a href="#GC优化" class="headerlink" title="GC优化"></a>GC优化</h4><p>将键和值都存储在值存储结构中</p>
+<h3 id="垃圾收集（GC）"><a href="#垃圾收集（GC）" class="headerlink" title="垃圾收集（GC）"></a>垃圾收集（GC）</h3><h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p>回收值存储中无效的键值对，释放空闲空间</p>
+<h4 id="触发条件"><a href="#触发条件" class="headerlink" title="触发条件"></a>触发条件</h4><p>GC以段组为单位进行操作，当保留空间中的空闲日志段被用完时触发</p>
+<h4 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h4><ol>
+<li>选择一个段组</li>
+<li>识别段组中的所有有效对并写回主段中（或者是附加的空闲日志段中）</li>
+<li>释放还未使用的空间以及无效的键值对</li>
+</ol>
+<p>过程优化：</p>
+<ol>
+<li>一般选择的段组是写入量最大的段组（通过跟踪内存段表中每个段表的写入量，并使用堆排序来快速识别哪个段组接受最大的写入量）</li>
+<li>顺序扫描段组中的KV对（会先检查写高速缓存中的最新KV对），而不扫描LSM树（减少开销）</li>
+<li>HashKV会构造临时内存散列表（通过键索引），以缓冲在段组中找到的有效KV对的地址</li>
+</ol>
+<h3 id="热感知"><a href="#热感知" class="headerlink" title="热感知"></a>热感知</h3><h4 id="目的-1"><a href="#目的-1" class="headerlink" title="目的"></a>目的</h4><p>将冷热键值对分离，将冷KV对单独存储，以减少数据重写，提高日志结构存储。</p>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>标记法：  </p>
+<ol>
+<li>在GC前先对段组中的KV对进行分类，将基本没更新的KV对视为冷类，将他们的值单独存储在一个区域，而在原来的段组中只保留元数据（即，没有值）并做一个标记</li>
+<li>GC结束时，更新LSM树中的最新值位置</li>
+</ol>
+<p>注：当对含有标签的冷KV对进行更新时，就会将KV对视为热KV对。并且舍弃之前的值。</p>
+<h3 id="选择性KV对分离"><a href="#选择性KV对分离" class="headerlink" title="选择性KV对分离"></a>选择性KV对分离</h3><h4 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h4><p>将小尺寸（所占空间小）的键值对直接存储在LSM树中</p>
+<h4 id="目的-2"><a href="#目的-2" class="headerlink" title="目的"></a>目的</h4><p>减少查找开销</p>
+<h3 id="范围查询"><a href="#范围查询" class="headerlink" title="范围查询"></a>范围查询</h3><h4 id="难题"><a href="#难题" class="headerlink" title="难题"></a>难题</h4><p>由于KV分离，且采用的散列分组的形式。所以如果进行范围查询就会导致很多的随机查询，从而提高开销，降低性能。</p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>预读机制：将值预取到页面缓存中来加速范围扫描。对于每个扫描请求，HashKV在LSM树中的排序键范围内迭代，并对每个值发出预读请求，然后读取所有值并返回排序的KV对。</p>
+<h3 id="崩溃一致性"><a href="#崩溃一致性" class="headerlink" title="崩溃一致性"></a>崩溃一致性</h3><h4 id="思想-1"><a href="#思想-1" class="headerlink" title="思想"></a>思想</h4><p>HashKV基于元数据日志记录解决崩溃一致性问题</p>
+<h4 id="措施"><a href="#措施" class="headerlink" title="措施"></a>措施</h4><p>一般针对于两个方面：1.刷新写缓存 2. GC操作</p>
+<h5 id="刷新写缓存"><a href="#刷新写缓存" class="headerlink" title="刷新写缓存"></a>刷新写缓存</h5><ol>
+<li>将高速缓存的KV对刷新到值存储器中</li>
+<li>将元数据更新附加到写入日志</li>
+<li>将提交记录写入日志端</li>
+<li>更新LSM树中的键和元数据</li>
+</ol>
+<h5 id="GC操作"><a href="#GC操作" class="headerlink" title="GC操作"></a>GC操作</h5><p>处理GC操作下的崩溃一致性是不同的，因为它可能会覆盖有效的KV对</p>
+<p>处理方法：</p>
+<ol>
+<li>将有效的KV对以及元数据更新附加到GC日志</li>
+<li>将所有有效KV对写回到段组</li>
+<li>更新LSM树中国中的元数据</li>
+<li>在日志中将GC操作标记为空闲</li>
+</ol>
+<h2 id="评估"><a href="#评估" class="headerlink" title="评估"></a>评估</h2><p>。。。。。。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>HashKV是一个适用于更新密集型应用的存储模型，还运用了热感知，选择性键值分离，崩溃一致性等方法来减少开销，提高性能。经测试表明，HashKV有较高的更新吞吐量以及较低的总写入大小。</p>
 
                 
             </div>
@@ -436,7 +494,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2023/09/17/hello-world/">http://example.com/2023/09/17/hello-world/</a>
+                    <a href="http://example.com/2023/09/18/HashKV/">http://example.com/2023/09/18/HashKV/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -473,7 +531,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/key-value/">
+                                    <span class="chip bg-color">key-value</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -550,17 +612,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/09/17/graph/">
+                <a href="/2023/09/18/HashKV/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="graph">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="HashKV">
                         
-                        <span class="card-title">graph</span>
+                        <span class="card-title">HashKV</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -570,9 +633,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -581,6 +644,15 @@
                         </span>
                     </div>
                 </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/key-value/">
+                        <span class="chip bg-color">key-value</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -588,16 +660,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/09/17/hello-world/">
+                <a href="/2023/09/17/graph/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="graph">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">graph</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -618,7 +690,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
