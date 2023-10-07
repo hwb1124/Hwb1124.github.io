@@ -365,21 +365,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-09-18
+                    2023-09-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -439,6 +439,8 @@
 <li>顺序扫描段组中的KV对（会先检查写高速缓存中的最新KV对），而不扫描LSM树（减少开销）</li>
 <li>HashKV会构造临时内存散列表（通过键索引），以缓冲在段组中找到的有效KV对的地址</li>
 </ol>
+<p>问题：hashKV的识别有效键值对，为什么不用扫描LSM树 </p>
+<p>解决方法：墓碑机制，如果说在LSM树中将key删除，那么就会在值存储中将插入一个墓碑键值对，表示该键已不存在。当垃圾收集检查到的时候，可以直接回收。</p>
 <h3 id="热感知"><a href="#热感知" class="headerlink" title="热感知"></a>热感知</h3><h4 id="目的-1"><a href="#目的-1" class="headerlink" title="目的"></a>目的</h4><p>将冷热键值对分离，将冷KV对单独存储，以减少数据重写，提高日志结构存储。</p>
 <h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>标记法：  </p>
 <ol>
@@ -615,18 +617,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/09/18/HashKV/">
+                <a href="/2023/10/07/Markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="HashKV">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">HashKV</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -636,9 +637,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-18
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-07
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -646,15 +647,6 @@
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/key-value/">
-                        <span class="chip bg-color">key-value</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -886,7 +878,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1.4k</span>
+                        class="white-color">2k</span>
             
             
             
