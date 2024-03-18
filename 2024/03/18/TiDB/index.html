@@ -402,15 +402,15 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="TiDB"><a href="#TiDB" class="headerlink" title="TiDB"></a>TiDB</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>TiDB是PingCAP公司自主设计、研发的开源分布式关系型数据库，最主要的特点是支持实时HTAP。还有具备水平扩容或者缩容、金融级高可用、兼容MySQL协议等等重要特性。TiDB还适用于高可用、强一致性要求较高、数据规模较大等应用场景。</p>
-<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p><img src="/../imags/TiDB/image-20240318142744138.png" alt="image-20240318142744138"></p>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p><img src="/../imags/TiDB/image-20240318142744138.png" alt="架构图"></p>
 <h3 id="存储节点"><a href="#存储节点" class="headerlink" title="存储节点"></a>存储节点</h3><ol>
 <li>TiKV:负责存储行式数据，存储数据的基本单位为region。每个节点会有多个region，region存储的是一个key Range的数据（值也是存储在lsm树中，但不跟key存储在一起）。TiKV还会自动维护多副本（一般为三个副本），天然支持高可用和自动故障转移。</li>
 <li>TiFlash： 负责存储列式数据，主要功能是为分析型的场景加速。</li>
 </ol>
-<h2 id="TiKV"><a href="#TiKV" class="headerlink" title="TiKV"></a>TiKV</h2><p><img src="/../imags/TiDB/image-20240318143551013.png" alt="image-20240318143551013"></p>
+<h2 id="TiKV"><a href="#TiKV" class="headerlink" title="TiKV"></a>TiKV</h2><p><img src="/../imags/TiDB/image-20240318143551013.png" alt="TiKV架构图"></p>
 <p>  TiKV采用的是利用raft算法做副本机制。一般采用的是三个副本，一个副本为leader，另外两个为follower。一般情况下读写都是在leader上完成。</p>
 <h3 id="RocksDB"><a href="#RocksDB" class="headerlink" title="RocksDB"></a>RocksDB</h3><p>​    </p>
-<p><img src="/../imags/TiDB/image-20240318144135324.png" alt="image-20240318144135324"></p>
+<p><img src="/../imags/TiDB/image-20240318144135324.png" alt="RocksDB架构图"></p>
 <p>   RocksDB是TiKV的核心存储引擎，用于存储Raft日志以及用户数据。每个TiKV实例中有两个RocksDB实例，一个用于存储Raft日志（raftdb），一个用于存储用户数据以及MVCC版本信息（kvdb）。  </p>
 <p>kvdb有四个ColumnFamily：</p>
 <ol>
